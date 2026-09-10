@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fable Multi-Agent Orchestration"
+  short_description: "Fable routes Sonnet, Opus, and Fable workers by difficulty"
+  default_prompt: "Use $super-engineering-fable to brainstorm and debate this task with Fable in super.engineering, then have Fable choose Sonnet, Opus, or Fable workers by task difficulty while Codex orchestrates and verifies."
