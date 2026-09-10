@@ -68,7 +68,7 @@ Explore the [complete skill catalog](docs/awesome-skills.md), with every discove
 | [Impeccable](docs/awesome-skills.md#impeccable) & [Frontend Design](docs/awesome-skills.md#frontend-design) | Interface design, critique, and refinement. |
 | [Claude-Mem](docs/awesome-skills.md#claude-mem) | Persistent context, research, planning, and knowledge workflows. |
 | [Documents](docs/awesome-skills.md#documents), [Spreadsheets](docs/awesome-skills.md#spreadsheets), [Presentations](docs/awesome-skills.md#presentations) & [PDF](docs/awesome-skills.md#pdf) | Create, inspect, and export work artifacts. |
-| [Standalone and local skills](docs/awesome-skills.md#standalone-and-local) | BridgeSpace workflows, code intelligence, editor tools, and local customizations. |
+| [Standalone and local skills](docs/awesome-skills.md#standalone-and-local) | [Graft](docs/awesome-skills.md#standalone-and-local-graft) codebase graphs, BridgeSpace workflows, editor tools, and local customizations. |
 
 ## Awesome Plugins
 
