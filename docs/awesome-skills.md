@@ -2,7 +2,7 @@
 
 [← Back to Imaji Agent Skills](../README.md) · [Awesome Plugins](awesome-plugins.md)
 
-**564 skill entries across 33 collections.** Inventory snapshot: September 10, 2026.
+**565 skill entries across 33 collections.** Inventory snapshot: September 10, 2026.
 
 This is the installed Imaji toolkit: shared and user skills, installed Codex and Claude Code plugin skills, and project-level skills. A skill is a reusable instruction file; a plugin may bundle skills, tools, hooks, or language servers.
 
@@ -14,7 +14,7 @@ Source links point to a verified repository path when available, otherwise to th
 
 | Collection | Entries |
 | --- | ---: |
-| [Imaji](#imaji) | 2 |
+| [Imaji](#imaji) | 3 |
 | [Anthropic skills](#anthropic-skills) | 1 |
 | [claude-mem](#claude-mem) | 20 |
 | [Cloudflare](#cloudflare) | 11 |
@@ -54,6 +54,7 @@ Source links point to a verified repository path when available, otherwise to th
 | --- | --- | --- |
 | <a id="imaji-super-engineering-chat"></a>[super-engineering-chat](../skills/super-engineering-chat/SKILL.md) | Open, select, message, and control coding agents or editors through the super.engineering interface when the user requests that environment, including Claude Code, Codex, Pycode,… | Included here |
 | <a id="imaji-super-engineering-fable"></a>[super-engineering-fable](../skills/super-engineering-fable/SKILL.md) | Brainstorm and debate with Fable in super.engineering, then let Fable route workers between Sonnet, Opus, and Fable by task difficulty while Codex orchestrates, reviews,… | Included here |
+| <a id="imaji-hub-spoke"></a>[hub-spoke](../skills/hub-spoke/SKILL.md) | Run a Fable hub that plans and delegates work to Sonnet and Opus spokes through the /hub command and the hub-spoke Workflow in Claude Code, with file-owned units and adversarial… | Included here |
 
 ## Anthropic skills
 
