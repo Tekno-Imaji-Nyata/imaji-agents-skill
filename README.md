@@ -22,20 +22,21 @@
 
 ---
 
-This repository brings together Imaji’s own agent workflows and a source-linked directory of the skills and plugins installed across our toolkit. Start with the two Imaji skills to coordinate work in **super.engineering**, or explore the catalogs to find tools for engineering, design, research, and delivery.
+This repository brings together Imaji’s own agent workflows and a source-linked directory of the skills and plugins installed across our toolkit. Start with the Imaji skills to coordinate work in **super.engineering** or run a Fable hub in Claude Code, or explore the catalogs to find tools for engineering, design, research, and delivery.
 
-**564 skill entries · 33 collections · 30 installed, linked, or runtime-provided plugin names**
+**565 skill entries · 33 collections · 30 installed, linked, or runtime-provided plugin names**
 
 Inventory snapshot: September 10, 2026. [Scope and counting rules](docs/awesome-skills.md#inventory-scope).
 
 ## Imaji skills
 
-These are the two skills maintained and included in this repository. Install them together.
+These are the skills maintained and included in this repository. The two super.engineering skills are installed together; hub-spoke is a Claude Code command and workflow.
 
 | Skill | What it does | Use it for |
 | --- | --- | --- |
 | [super-engineering-chat](skills/super-engineering-chat/SKILL.md) | Operates agents through super.engineering’s visible interface, checks message submission, and keeps the intended workspace and session. | Reliable interaction with coding agents in the app. |
 | [super-engineering-fable](skills/super-engineering-fable/SKILL.md) | Structures brainstorming and debate with Fable, delegates bounded work, and checks the integrated result. | Features that benefit from a manager and multiple workers. |
+| [hub-spoke](skills/hub-spoke/SKILL.md) | Runs a Fable hub in Claude Code that scouts with Sonnet, plans file-owned units, and executes them on Opus or Sonnet spokes with adversarial Opus verification. | Terminal work where Fable should plan and approve but never read or edit files. |
 
 ### How we work
 
@@ -59,7 +60,7 @@ Explore the [complete skill catalog](docs/awesome-skills.md), with every discove
 
 | Collection | What you’ll find |
 | --- | --- |
-| [Imaji orchestration](docs/awesome-skills.md#imaji) | The two workflows maintained here. |
+| [Imaji orchestration](docs/awesome-skills.md#imaji) | The three workflows maintained here. |
 | [Superpowers](docs/awesome-skills.md#superpowers) | Planning, debugging, testing, code review, and parallel development. |
 | [ECC](docs/awesome-skills.md#ecc) | Engineering workflows, language and framework guides, security, research, and agent operations. |
 | [Matt Pocock’s skills](docs/awesome-skills.md#mattpocock-skills) | Clarifying requirements, domain modeling, implementation, review, and handoff. |
@@ -83,7 +84,7 @@ Browse the [complete plugin catalog](docs/awesome-plugins.md) for source links, 
 | Work artifacts | [Documents](docs/awesome-plugins.md#documents), [Spreadsheets](docs/awesome-plugins.md#spreadsheets), [Presentations](docs/awesome-plugins.md#presentations), [PDF](docs/awesome-plugins.md#pdf), [Visualize](docs/awesome-plugins.md#visualize), [Sites](docs/awesome-plugins.md#sites) |
 | Shared integrations | [GitHub](docs/awesome-plugins.md#github), [Google Drive](docs/awesome-plugins.md#google-drive), [Gmail](docs/awesome-plugins.md#gmail), [Neon Postgres](docs/awesome-plugins.md#neon-postgres), [Komand Widgets](docs/awesome-plugins.md#komand-widgets) |
 
-A skill is an instruction file. A plugin can also provide tools, hooks, services, and dependencies. Installing these two Imaji skills does not install the entire catalog or authenticate its integrations.
+A skill is an instruction file. A plugin can also provide tools, hooks, services, and dependencies. Installing the Imaji skills does not install the entire catalog or authenticate its integrations.
 
 ## Install
 
@@ -119,6 +120,18 @@ ln -s ../../.agents/skills/super-engineering-chat "$project_dir/.claude/skills/s
 ln -s ../../.agents/skills/super-engineering-fable "$project_dir/.claude/skills/super-engineering-fable"
 ```
 
+For the Claude Code hub-spoke command, workflow, tests, and scout agent:
+
+```sh
+mkdir -p ~/.claude/commands ~/.claude/workflows/tests ~/.claude/agents
+cp skills/hub-spoke/commands/hub.md ~/.claude/commands/
+cp skills/hub-spoke/workflows/hub-spoke.js ~/.claude/workflows/
+cp skills/hub-spoke/workflows/tests/*.mjs ~/.claude/workflows/tests/
+cp skills/hub-spoke/agents/codebase-memory-scout.md ~/.claude/agents/
+```
+
+It needs the codebase-memory MCP server with your repositories indexed. See [the skill](skills/hub-spoke/SKILL.md) for requirements and how to run its tests.
+
 Inspect existing folders or links before installing; preserve any local customizations. Start a new agent session after installation so it can discover the skills.
 
 ## Use
@@ -128,6 +141,15 @@ Example request:
 > Use $super-engineering-fable to brainstorm and debate this feature with Fable in super.engineering. Have Fable choose Sonnet, Opus, or Fable workers according to task difficulty while Codex orchestrates and verifies the result.
 
 Use `$super-engineering-chat` for direct agent interaction in the app.
+
+In Claude Code, run a hub:
+
+```
+/hub add rate limiting to the login endpoint
+/hub --read-only where is session expiry enforced?
+```
+
+Fable scouts with Sonnet, shows a plan table, and waits for approval before the `hub-spoke` workflow runs anything.
 
 The workflow needs super.engineering, supported computer-use tools, and access to the requested model integrations. The skills do not bundle software, model access, or credentials. They do not grant permission to deploy, publish, purchase services, or message people beyond the user's authorized task.
 
